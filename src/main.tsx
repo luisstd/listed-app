@@ -6,13 +6,7 @@ import App from './App'
 
 ReactDOM.render(
   <React.StrictMode>
-    <MantineProvider
-      theme={{
-        fontFamily: 'Atkinson Hyperlegible',
-      }}
-    >
-      <App />
-    </MantineProvider>
+    <App />
   </React.StrictMode>,
   document.getElementById('root'),
 )
