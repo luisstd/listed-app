@@ -15,7 +15,7 @@ import {
   Title,
 } from '@mantine/core'
 import './index.css'
-import Auth from './components/Auth'
+import Login from './components/Login'
 import List from './components/List'
 import { NotificationsProvider } from '@mantine/notifications'
 import { supabase } from './supabase/client'
@@ -44,6 +44,7 @@ function App() {
             fontFamily: 'Atkinson Hyperlegible, sans-serif',
             fontFamilyMonospace: 'Space Mono, monospace',
             colorScheme: colorScheme,
+            primaryColor: 'violet',
             headings: {
               fontFamily: 'Recursive, sans-serif',
             },
@@ -63,7 +64,7 @@ function App() {
               </Group>
             </Header>
             <Space h='lg'></Space>
-            {!user ? <Auth /> : <List />}
+            {!user ? <Login /> : <List />}
           </NotificationsProvider>
         </MantineProvider>
       </ColorSchemeProvider>
