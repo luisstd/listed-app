@@ -7,13 +7,11 @@ import {
   Space,
   Button,
   Container,
-  Center,
   Stack,
   Title,
-  Grid,
 } from '@mantine/core'
 import { useInputState } from '@mantine/hooks'
-import React, { KeyboardEventHandler, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Plus, Trash } from 'tabler-icons-react'
 import { supabase } from '../supabase/client'
 import Item from '../types/Item'
@@ -56,7 +54,7 @@ const List = () => {
   }
 
   const addItemKey = async (e: React.KeyboardEvent<HTMLInputElement>) => {
-    //it triggers by pressing the enter key
+    // triggers by pressing the enter key
     if (e.keyCode === 13) {
       addItem()
       setItem('')
@@ -111,7 +109,7 @@ const List = () => {
       <Group>
         <Container>
           {items && items.find((item) => !item.is_complete) && (
-            <Title>Needed Items &nbsp;&nbsp;&nbsp;&nbsp;</Title>
+            <Title>Needed Items &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Title>
           )}
 
           <Space h='lg'></Space>
@@ -153,7 +151,7 @@ const List = () => {
             {items &&
               items
                 .filter((item) => item.is_complete)
-                .map((item, index) => (
+                .map((item) => (
                   <Group
                     className='hover:bg-neutral-100 dark:hover:bg-neutral-800 bg-opacity-10 rounded-md p-2'
                     position='apart'

@@ -1,27 +1,21 @@
 import { useEffect, useState } from 'react'
 import logo from './logo.svg'
 import {
-  AppShell,
-  Button,
   Header,
-  Navbar,
   Text,
   Group,
   ColorSchemeProvider,
   MantineProvider,
   ColorScheme,
   ActionIcon,
-  Stack,
   Space,
-  Center,
-  Container,
 } from '@mantine/core'
 import './index.css'
 import Auth from './components/Auth'
 import List from './components/List'
 import { NotificationsProvider } from '@mantine/notifications'
 import { supabase } from './supabase/client'
-import { useColorScheme, useLocalStorage } from '@mantine/hooks'
+import { useColorScheme } from '@mantine/hooks'
 import { MoonStars, Sun } from 'tabler-icons-react'
 
 function App() {
