@@ -1,3 +1,5 @@
+import '@fontsource/atkinson-hyperlegible'
+import '@fontsource/space-mono'
 import { useEffect, useState } from 'react'
 import logo from './logo.svg'
 import {
@@ -38,6 +40,7 @@ function App() {
           withNormalizeCSS
           theme={{
             fontFamily: 'Atkinson Hyperlegible, sans-serif',
+            fontFamilyMonospace: 'Space Mono, monospace',
             colorScheme: colorScheme,
             headings: {
               fontFamily: 'Atkinson Hyperlegible, sans-serif',

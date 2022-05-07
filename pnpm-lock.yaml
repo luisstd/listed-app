@@ -2,6 +2,8 @@ lockfileVersion: 5.3
 
 specifiers:
   '@babel/core': ^7.17.9
+  '@fontsource/atkinson-hyperlegible': ^4.5.7
+  '@fontsource/space-mono': ^4.5.8
   '@mantine/core': ^4.1.4
   '@mantine/form': ^4.1.4
   '@mantine/hooks': ^4.1.4
@@ -23,6 +25,8 @@ specifiers:
 
 dependencies:
   '@babel/core': 7.17.9
+  '@fontsource/atkinson-hyperlegible': 4.5.7
+  '@fontsource/space-mono': 4.5.8
   '@mantine/core': 4.1.4_b7c9a86ec5b88deb47f8339ff63141b3
   '@mantine/form': 4.1.4_react@17.0.2
   '@mantine/hooks': 4.1.4_react@17.0.2
@@ -376,6 +380,14 @@ packages:
 
   /@emotion/weak-memoize/0.2.5:
     resolution: {integrity: sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==}
+    dev: false
+
+  /@fontsource/atkinson-hyperlegible/4.5.7:
+    resolution: {integrity: sha512-aceHefVY/tls5hcdOXfx81HWFAFD1VGqZRnKGBDc0cgdKAg6fx2qD0hd9eUSNGqtVmijmw1/KXFYxXS5Df6XxQ==}
+    dev: false
+
+  /@fontsource/space-mono/4.5.8:
+    resolution: {integrity: sha512-qO3riZauz1yu7g8gumsmKgGitgDx7dQbwjKG+rDhF/OfNNCPyjArcNIU22nvANZ7UuDvLzo3tRprqlosaS7fKA==}
     dev: false
 
   /@jridgewell/resolve-uri/3.0.5:

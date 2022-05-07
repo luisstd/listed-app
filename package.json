@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@babel/core": "^7.17.9",
+    "@fontsource/atkinson-hyperlegible": "^4.5.7",
+    "@fontsource/space-mono": "^4.5.8",
     "@mantine/core": "^4.1.4",
     "@mantine/form": "^4.1.4",
     "@mantine/hooks": "^4.1.4",
