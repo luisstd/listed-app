@@ -1,2 +1,6 @@
 @tailwind components;
 @tailwind utilities;
+
+body {
+  @layer -webkit-font-smoothing: subpixel-antialiased;
+}
