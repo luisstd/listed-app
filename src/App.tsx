@@ -1,5 +1,6 @@
 import '@fontsource/atkinson-hyperlegible'
 import '@fontsource/space-mono'
+import '@fontsource/recursive'
 import { useEffect, useState } from 'react'
 import logo from './logo.svg'
 import {
@@ -11,6 +12,7 @@ import {
   ColorScheme,
   ActionIcon,
   Space,
+  Title,
 } from '@mantine/core'
 import './index.css'
 import Auth from './components/Auth'
@@ -43,16 +45,14 @@ function App() {
             fontFamilyMonospace: 'Space Mono, monospace',
             colorScheme: colorScheme,
             headings: {
-              fontFamily: 'Atkinson Hyperlegible, sans-serif',
+              fontFamily: 'Recursive, sans-serif',
             },
           }}
         >
           <NotificationsProvider>
             <Header height={60} p='sm'>
               <Group position='apart' px='md'>
-                <Text size='xl' weight='bold'>
-                  <em>listed.fyi </em>
-                </Text>
+                <Text className='font-bold font-heading italic text-xl '>listed.fyi</Text>
                 <ActionIcon
                   size='lg'
                   onClick={() => toggleColorScheme()}

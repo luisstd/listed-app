@@ -3,6 +3,7 @@ lockfileVersion: 5.3
 specifiers:
   '@babel/core': ^7.17.9
   '@fontsource/atkinson-hyperlegible': ^4.5.7
+  '@fontsource/recursive': ^4.5.7
   '@fontsource/space-mono': ^4.5.8
   '@mantine/core': ^4.1.4
   '@mantine/form': ^4.1.4
@@ -26,6 +27,7 @@ specifiers:
 dependencies:
   '@babel/core': 7.17.9
   '@fontsource/atkinson-hyperlegible': 4.5.7
+  '@fontsource/recursive': 4.5.7
   '@fontsource/space-mono': 4.5.8
   '@mantine/core': 4.1.4_b7c9a86ec5b88deb47f8339ff63141b3
   '@mantine/form': 4.1.4_react@17.0.2
@@ -384,6 +386,10 @@ packages:
 
   /@fontsource/atkinson-hyperlegible/4.5.7:
     resolution: {integrity: sha512-aceHefVY/tls5hcdOXfx81HWFAFD1VGqZRnKGBDc0cgdKAg6fx2qD0hd9eUSNGqtVmijmw1/KXFYxXS5Df6XxQ==}
+    dev: false
+
+  /@fontsource/recursive/4.5.7:
+    resolution: {integrity: sha512-1PfOduOq9l8zZOQccQth/+qmkHPo7D0wvfWayPb4hNxrh1sHTKPFwPo45cUHJL4i8dMj8cskhafzkRHIk994gw==}
     dev: false
 
   /@fontsource/space-mono/4.5.8:
