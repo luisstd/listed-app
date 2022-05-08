@@ -17,6 +17,5 @@
   ],
   "theme_color": "#7950f2",
   "background_color": "#000000",
-  "display": "standalone",
-  "launch_handler": { "route_to": "new-client" }
+  "display": "standalone"
 }
