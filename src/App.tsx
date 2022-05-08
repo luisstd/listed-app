@@ -4,7 +4,6 @@ import '@fontsource/recursive'
 import { useEffect, useState } from 'react'
 import logo from './logo.svg'
 import {
-  Header,
   Text,
   Group,
   ColorSchemeProvider,
@@ -17,18 +16,21 @@ import {
 import './index.css'
 import Login from './components/Login'
 import List from './components/List'
+import HeaderBar from './components/Header'
 import { NotificationsProvider } from '@mantine/notifications'
 import { supabase } from './supabase/client'
 import { useColorScheme } from '@mantine/hooks'
-import { MoonStars, Sun } from 'tabler-icons-react'
 
 function App() {
   const user = supabase.auth.user()
 
+  async function signOut() {
+    await supabase.auth.signOut()
+    window.location.reload()
+  }
+
   const preferredColorScheme = useColorScheme(undefined)
 
-  const [count, setCount] = useState(0)
-  const [opened, setOpened] = useState(false)
   const [colorScheme, setColorScheme] = useState<ColorScheme>(preferredColorScheme)
 
   const toggleColorScheme = (value?: ColorScheme) =>
@@ -51,18 +53,12 @@ function App() {
           }}
         >
           <NotificationsProvider>
-            <Header height={60} p='sm'>
-              <Group position='apart' px='md'>
-                <Text className='font-bold font-heading italic text-xl '>listed.fyi</Text>
-                <ActionIcon
-                  size='lg'
-                  onClick={() => toggleColorScheme()}
-                  title='Toggle color scheme'
-                >
-                  {colorScheme === 'dark' ? <Sun size={20} /> : <MoonStars size={20} />}
-                </ActionIcon>
-              </Group>
-            </Header>
+            <HeaderBar
+              colorScheme={colorScheme}
+              toggleColorScheme={toggleColorScheme}
+              signOut={signOut}
+              user={user}
+            />
             <Space h='lg'></Space>
             {!user ? <Login /> : <List />}
           </NotificationsProvider>

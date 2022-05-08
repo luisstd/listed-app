@@ -138,10 +138,6 @@ export function Login() {
     }
   }
 
-  async function signOut() {
-    await supabase.auth.signOut()
-  }
-
   return (
     <Container className={classes.wrapper} size={1400}>
       <Dots className={classes.dots} style={{ left: 0, top: 0 }} />
