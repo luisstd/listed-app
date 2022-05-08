@@ -15,6 +15,7 @@ const useStyles = createStyles((theme) => ({
     width: 160,
     top: 0,
     left: 0,
+    borderRadius: 4,
     backgroundColor:
       theme.colorScheme === 'dark'
         ? theme.fn.rgba(theme.colors[theme.primaryColor][7], 0.2)
