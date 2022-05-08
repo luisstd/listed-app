@@ -2,6 +2,7 @@
   "short_name": "Listed",
   "name": "listed.fyi",
   "description": "Simple webapp to create lists",
+  "start_url": "/",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
