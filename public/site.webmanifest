@@ -1,6 +1,7 @@
 {
-  "name": "",
-  "short_name": "",
+  "short_name": "Listed",
+  "name": "listed.fyi",
+  "description": "Simple webapp to create lists",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -13,7 +14,7 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#fffff0",
+  "theme_color": "#7950f2",
   "background_color": "#fffff0",
   "display": "standalone"
 }
