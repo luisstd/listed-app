@@ -17,5 +17,6 @@
   ],
   "theme_color": "#7950f2",
   "background_color": "#000000",
-  "display": "standalone"
+  "display": "standalone",
+  "capture_links": "new-client"
 }
