@@ -1,25 +1,14 @@
 import '@fontsource/atkinson-hyperlegible'
 import '@fontsource/space-mono'
 import '@fontsource/recursive'
-import { useEffect, useState } from 'react'
-import logo from './logo.svg'
-import {
-  Text,
-  Group,
-  ColorSchemeProvider,
-  MantineProvider,
-  ColorScheme,
-  ActionIcon,
-  Space,
-  Title,
-} from '@mantine/core'
+import { ColorSchemeProvider, MantineProvider, ColorScheme, Space } from '@mantine/core'
 import './index.css'
 import Login from './components/Login'
 import List from './components/List'
 import HeaderBar from './components/Header'
 import { NotificationsProvider } from '@mantine/notifications'
 import { supabase } from './supabase/client'
-import { useColorScheme } from '@mantine/hooks'
+import { useLocalStorage } from '@mantine/hooks'
 
 function App() {
   const user = supabase.auth.user()
@@ -29,9 +18,11 @@ function App() {
     window.location.reload()
   }
 
-  const preferredColorScheme = useColorScheme(undefined)
-
-  const [colorScheme, setColorScheme] = useState<ColorScheme>(preferredColorScheme)
+  const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
+    key: 'mantine-color-scheme',
+    defaultValue: 'light',
+    getInitialValueInEffect: true,
+  })
 
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || colorScheme === 'dark' ? 'light' : 'dark')
