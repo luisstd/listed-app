@@ -1,5 +1,5 @@
 import { createStyles, Anchor, Group, ActionIcon, Text } from '@mantine/core'
-import { BrandTwitter, BrandYoutube, BrandInstagram, BrandGithub, Cup } from 'tabler-icons-react'
+import { BrandGithub, Cup } from 'tabler-icons-react'
 import { useState } from 'react'
 import { Privacy } from './Privacy'
 
@@ -30,10 +30,6 @@ const useStyles = createStyles((theme) => ({
     },
   },
 }))
-
-interface FooterCenteredProps {
-  links: { link: string; label: string }[]
-}
 
 export function Footer() {
   const { classes } = useStyles()

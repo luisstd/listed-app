@@ -1,11 +1,13 @@
-import { Text, Header, Group, ActionIcon } from '@mantine/core'
+import { Text, Header, Group, ActionIcon, Space } from '@mantine/core'
 import { Logout, MoonStars, Sun } from 'tabler-icons-react'
 
 function HeaderBar({ colorScheme, toggleColorScheme, signOut, user }: any) {
   return (
     <Header height={60} p='sm'>
-      <Group position='apart' px='md'>
-        <Text className='font-bold font-heading italic text-xl '>listed.fyi</Text>
+      <Group className='justify-around' px='md'>
+        <Text className='font-bold font-heading italic text-xl'>listed.fyi</Text>
+        <Space w='xl'></Space>
+        <Space w='xl'></Space>
         <Group>
           <ActionIcon size='lg' onClick={() => toggleColorScheme()} title='Toggle color scheme'>
             {colorScheme === 'dark' ? <Sun size={20} /> : <MoonStars size={20} />}
