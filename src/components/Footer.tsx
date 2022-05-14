@@ -51,7 +51,8 @@ function Footer() {
           <Anchor<'a'>
             color='dimmed'
             sx={{ lineHeight: 1 }}
-            onClick={(event) => event.preventDefault()}
+            target='_blank'
+            href='https://github.com/luisstd/listed-app#readme'
             size='sm'
           >
             Readme
@@ -59,12 +60,16 @@ function Footer() {
         </Group>
 
         <Group spacing={0} position='right' noWrap>
-          <ActionIcon size='lg'>
-            <BrandGithub size={18} />
-          </ActionIcon>
-          <ActionIcon size='lg'>
-            <Cup size={18} />
-          </ActionIcon>
+          <Anchor href='https://github.com/luisstd/listed-app' target='_blank'>
+            <ActionIcon size='lg'>
+              <BrandGithub size={18} />
+            </ActionIcon>
+          </Anchor>
+          <Anchor href='https://www.buymeacoffee.com/lstd' target='_blank'>
+            <ActionIcon size='lg'>
+              <Cup size={18} />
+            </ActionIcon>
+          </Anchor>
         </Group>
         <Privacy opened={opened} setOpened={setOpened} onClose={() => setOpened(false)} />
       </div>
