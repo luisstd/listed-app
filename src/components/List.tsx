@@ -58,6 +58,7 @@ const List = () => {
     if (e.keyCode === 13) {
       addItem()
       setItem('')
+      getItems()
     }
   }
 
@@ -89,7 +90,7 @@ const List = () => {
             size='md'
             invalid={isInvalid()}
             onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
-              addItemKey(e).then(getItems)
+              addItemKey(e)
             }}
           ></Input>
           <Button
