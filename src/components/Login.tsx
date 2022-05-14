@@ -13,6 +13,7 @@ import {
 } from '@mantine/core'
 import { Dots } from './Dots'
 import { Features } from './Features'
+import { Privacy } from './Privacy'
 import { Footer } from './Footer'
 import { useInputState } from '@mantine/hooks'
 import { showNotification } from '@mantine/notifications'
@@ -105,19 +106,7 @@ export function Login() {
   const { classes } = useStyles()
   const theme = useMantineTheme()
 
-  const [opened, setOpened] = useState(false)
   const [email, setEmail] = useInputState('')
-
-  const links = [
-    {
-      link: '#',
-      label: 'Privacy',
-    },
-    {
-      link: '#',
-      label: 'Readme',
-    },
-  ]
 
   async function signInWithEmail() {
     try {
@@ -171,7 +160,7 @@ export function Login() {
               onChange={setEmail}
             />
 
-            <Button color='violet' size='lg' onClick={() => (signInWithEmail(), setOpened(false))}>
+            <Button color='violet' size='lg' onClick={() => signInWithEmail()}>
               Get login link
             </Button>
           </Group>
@@ -180,7 +169,7 @@ export function Login() {
       <Space h='xl'></Space>
       <Space h='xl'></Space>
       <Features />
-      <Footer links={links} />
+      <Footer />
     </Container>
   )
 }

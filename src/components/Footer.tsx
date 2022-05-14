@@ -1,6 +1,7 @@
-import React from 'react'
 import { createStyles, Anchor, Group, ActionIcon, Text } from '@mantine/core'
 import { BrandTwitter, BrandYoutube, BrandInstagram, BrandGithub, Cup } from 'tabler-icons-react'
+import { useState } from 'react'
+import { Privacy } from './Privacy'
 
 const useStyles = createStyles((theme) => ({
   footer: {
@@ -34,26 +35,32 @@ interface FooterCenteredProps {
   links: { link: string; label: string }[]
 }
 
-export function Footer({ links }: FooterCenteredProps) {
+export function Footer() {
   const { classes } = useStyles()
-  const items = links.map((link) => (
-    <Anchor<'a'>
-      color='dimmed'
-      key={link.label}
-      href={link.link}
-      sx={{ lineHeight: 1 }}
-      onClick={(event) => event.preventDefault()}
-      size='sm'
-    >
-      {link.label}
-    </Anchor>
-  ))
+  const [opened, setOpened] = useState(false)
 
   return (
     <div className={classes.footer}>
       <div className={classes.inner}>
         <Text className='font-heading font-black italic'>listed.fyi</Text>
-        <Group className={classes.links}>{items}</Group>
+        <Group className={classes.links}>
+          <Anchor<'a'>
+            color='dimmed'
+            sx={{ lineHeight: 1 }}
+            onClick={() => setOpened(true)}
+            size='sm'
+          >
+            Privacy
+          </Anchor>
+          <Anchor<'a'>
+            color='dimmed'
+            sx={{ lineHeight: 1 }}
+            onClick={(event) => event.preventDefault()}
+            size='sm'
+          >
+            Readme
+          </Anchor>
+        </Group>
 
         <Group spacing={0} position='right' noWrap>
           <ActionIcon size='lg'>
@@ -63,6 +70,7 @@ export function Footer({ links }: FooterCenteredProps) {
             <Cup size={18} />
           </ActionIcon>
         </Group>
+        <Privacy opened={opened} setOpened={setOpened} onClose={() => setOpened(false)} />
       </div>
     </div>
   )
