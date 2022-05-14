@@ -47,7 +47,7 @@
 Sign up to Supabase - <https://app.supabase.io> and create a new project. Wait for your database to start.
 
 In your Supabase project, make sure to create the `items` table with the following fields:
-![DB Setup](https://github.com/luisstd/listed-app/raw/main/public/db.png)]
+![DB Setup](https://github.com/luisstd/listed-app/raw/main/public/db.png)
 
 ### Setup
 
@@ -81,7 +81,7 @@ In your Supabase project, make sure to create the `items` table with the followi
 ## Usage
 
 After login there is a the list view where you can create items, check them off and also remove them from the database. That's it.
-![listed.fyi list view](https://github.com/luisstd/listed-app/raw/main/public/list.png)]
+![listed.fyi list view](https://github.com/luisstd/listed-app/raw/main/public/list.png)
 
 <!-- LICENSE -->
 
