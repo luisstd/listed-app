@@ -23,4 +23,4 @@ function HeaderBar({ colorScheme, toggleColorScheme, signOut, user }: any) {
   )
 }
 
-export default HeaderBar
+export { HeaderBar }

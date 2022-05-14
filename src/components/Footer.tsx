@@ -1,6 +1,6 @@
+import { useState } from 'react'
 import { createStyles, Anchor, Group, ActionIcon, Text } from '@mantine/core'
 import { BrandGithub, Cup } from 'tabler-icons-react'
-import { useState } from 'react'
 import { Privacy } from './Privacy'
 
 const useStyles = createStyles((theme) => ({
@@ -31,7 +31,7 @@ const useStyles = createStyles((theme) => ({
   },
 }))
 
-export function Footer() {
+function Footer() {
   const { classes } = useStyles()
   const [opened, setOpened] = useState(false)
 
@@ -71,3 +71,5 @@ export function Footer() {
     </div>
   )
 }
+
+export { Footer }

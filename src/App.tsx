@@ -1,14 +1,15 @@
-import '@fontsource/atkinson-hyperlegible'
-import '@fontsource/space-mono'
-import '@fontsource/recursive'
 import { ColorSchemeProvider, MantineProvider, ColorScheme, Space } from '@mantine/core'
-import './index.css'
-import Login from './components/Login'
-import List from './components/List'
-import HeaderBar from './components/Header'
 import { NotificationsProvider } from '@mantine/notifications'
-import { supabase } from './supabase/client'
 import { useLocalStorage } from '@mantine/hooks'
+
+import { Login } from './views/Login'
+import { List } from './views/List'
+import { HeaderBar } from './components/Header'
+import { supabase } from './supabase/client'
+
+import '@fontsource/atkinson-hyperlegible'
+import '@fontsource/recursive'
+import '@fontsource/space-mono'
 
 function App() {
   const user = supabase.auth.user()

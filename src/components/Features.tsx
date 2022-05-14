@@ -1,6 +1,6 @@
 import React from 'react'
 import { createStyles, Text, SimpleGrid, Container } from '@mantine/core'
-import { Login, Server, Database, BrandGithub } from 'tabler-icons-react'
+import { Login, Database, BrandGithub } from 'tabler-icons-react'
 
 const useStyles = createStyles((theme) => ({
   feature: {
@@ -81,7 +81,7 @@ const mockdata = [
   },
 ]
 
-export function Features() {
+function Features() {
   const items = mockdata.map((item) => <Feature {...item} key={item.title} />)
 
   return (
@@ -92,3 +92,5 @@ export function Features() {
     </Container>
   )
 }
+
+export { Features }

@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react'
 import {
   ActionIcon,
   Group,
@@ -11,7 +12,6 @@ import {
   Title,
 } from '@mantine/core'
 import { useInputState } from '@mantine/hooks'
-import React, { useEffect, useState } from 'react'
 import { Plus, Trash } from 'tabler-icons-react'
 import { supabase } from '../supabase/client'
 import Item from '../types/Item'
@@ -182,4 +182,4 @@ const List = () => {
   )
 }
 
-export default List
+export { List }

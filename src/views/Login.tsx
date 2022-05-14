@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import {
   createStyles,
   Title,
@@ -11,12 +10,11 @@ import {
   Input,
   Space,
 } from '@mantine/core'
-import { Dots } from './Dots'
-import { Features } from './Features'
-import { Privacy } from './Privacy'
-import { Footer } from './Footer'
-import { useInputState } from '@mantine/hooks'
 import { showNotification } from '@mantine/notifications'
+import { useInputState } from '@mantine/hooks'
+import { Dots } from '../components/Dots'
+import { Features } from '../components/Features'
+import { Footer } from '../components/Footer'
 import { supabase } from '../supabase/client'
 import { At } from 'tabler-icons-react'
 
@@ -102,7 +100,7 @@ const useStyles = createStyles((theme) => ({
   },
 }))
 
-export function Login() {
+function Login() {
   const { classes } = useStyles()
   const theme = useMantineTheme()
 
@@ -174,4 +172,4 @@ export function Login() {
   )
 }
 
-export default Login
+export { Login }
