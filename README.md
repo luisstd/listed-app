@@ -25,6 +25,13 @@
 
 ![listed.fyi login page](https://github.com/luisstd/listed-app/raw/main/public/login.png)
 
+### Features
+
+- Light/Dark Mode
+- Add to Homescreen
+- Quick Login via e-mail link
+- Ready for self-hosting
+
 ### Built With
 
 - [React](https://reactjs.org/)
@@ -40,7 +47,7 @@
 
 ### Deploy with Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fnext.js%2Ftree%2Fcanary%2Fexamples%2Fhello-world)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fluisstd%2Flisted-app&env=VITE_SUPABASE_URL,VITE_SUPABASE_ANON_KEY&envDescription=These%20variables%20are%20needed%20for%20connecting%20to%20your%20Supabase%20DB&envLink=https%3A%2F%2Fgithub.com%2Fluisstd%2Flisted-app%23setup&project-name=listed-app&repo-name=listed-app&demo-title=Listed%20Public%20Instance&demo-description=The%20public%20instance%20at%20listed.fyi&demo-url=https%3A%2F%2Flisted.fyi&demo-image=https%3A%2F%2Fraw.githubusercontent.com%2Fluisstd%2Flisted-app%2Fmain%2Fpublic%2Flogin.png)
 
 ### Create Supabase Database
 
@@ -80,7 +87,7 @@ In your Supabase project, make sure to create the `items` table with the followi
 
 ## Usage
 
-After login there is a the list view where you can create items, check them off and also remove them from the database. That's it.
+After login there is the list view where you can create items, check them off and also remove them from the database. That's it.
 ![listed.fyi list view](https://github.com/luisstd/listed-app/raw/main/public/list.png)
 
 <!-- LICENSE -->
