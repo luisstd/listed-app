@@ -1,7 +1,6 @@
-import { useState } from 'react'
-import { ColorSchemeProvider, MantineProvider, ColorScheme, Space } from '@mantine/core'
+import { MantineProvider, ColorScheme, Space } from '@mantine/core'
 import { NotificationsProvider } from '@mantine/notifications'
-import { useColorScheme } from '@mantine/hooks'
+import { useColorScheme, useLocalStorage } from '@mantine/hooks'
 
 import { Login } from './views/Login'
 import { List } from './views/List'
@@ -22,40 +21,40 @@ function App() {
 
   const systemColorScheme = useColorScheme()
 
-  const [colorScheme, setColorScheme] = useState<ColorScheme>(systemColorScheme)
+  const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
+    key: 'mantine-color-scheme',
+    defaultValue: systemColorScheme,
+    getInitialValueInEffect: true,
+  })
 
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || colorScheme === 'dark' ? 'light' : 'dark')
 
   return (
-    <div className={colorScheme}>
-      <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
-        <MantineProvider
-          withGlobalStyles
-          withNormalizeCSS
-          theme={{
-            fontFamily: 'Atkinson Hyperlegible, sans-serif',
-            fontFamilyMonospace: 'Space Mono, monospace',
-            colorScheme: colorScheme,
-            primaryColor: 'violet',
-            headings: {
-              fontFamily: 'Recursive, sans-serif',
-            },
-          }}
-        >
-          <NotificationsProvider>
-            <HeaderBar
-              colorScheme={colorScheme}
-              toggleColorScheme={toggleColorScheme}
-              signOut={signOut}
-              user={user}
-            />
-            <Space h='lg'></Space>
-            {!user ? <Login /> : <List />}
-          </NotificationsProvider>
-        </MantineProvider>
-      </ColorSchemeProvider>
-    </div>
+    <MantineProvider
+      withGlobalStyles
+      withNormalizeCSS
+      theme={{
+        fontFamily: 'Atkinson Hyperlegible, sans-serif',
+        fontFamilyMonospace: 'Space Mono, monospace',
+        colorScheme: colorScheme,
+        primaryColor: 'violet',
+        headings: {
+          fontFamily: 'Recursive, sans-serif',
+        },
+      }}
+    >
+      <NotificationsProvider>
+        <HeaderBar
+          colorScheme={colorScheme}
+          toggleColorScheme={toggleColorScheme}
+          signOut={signOut}
+          user={user}
+        />
+        <Space h='lg'></Space>
+        {!user ? <Login /> : <List />}
+      </NotificationsProvider>
+    </MantineProvider>
   )
 }
 
