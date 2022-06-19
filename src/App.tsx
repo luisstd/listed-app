@@ -1,6 +1,7 @@
+import { useState } from 'react'
 import { ColorSchemeProvider, MantineProvider, ColorScheme, Space } from '@mantine/core'
 import { NotificationsProvider } from '@mantine/notifications'
-import { useLocalStorage } from '@mantine/hooks'
+import { useColorScheme } from '@mantine/hooks'
 
 import { Login } from './views/Login'
 import { List } from './views/List'
@@ -19,11 +20,9 @@ function App() {
     window.location.reload()
   }
 
-  const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
-    key: 'mantine-color-scheme',
-    defaultValue: 'light',
-    getInitialValueInEffect: true,
-  })
+  const systemColorScheme = useColorScheme()
+
+  const [colorScheme, setColorScheme] = useState<ColorScheme>(systemColorScheme)
 
   const toggleColorScheme = (value?: ColorScheme) =>
     setColorScheme(value || colorScheme === 'dark' ? 'light' : 'dark')
