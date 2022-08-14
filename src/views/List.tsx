@@ -1,4 +1,4 @@
-import React, { Ref, useEffect, useState } from "react";
+import React, { Ref, useEffect, useState } from 'react'
 import {
   ActionIcon,
   Group,
@@ -10,115 +10,109 @@ import {
   Container,
   Stack,
   Title,
-} from "@mantine/core";
-import { useInputState } from "@mantine/hooks";
+} from '@mantine/core'
+import { useInputState } from '@mantine/hooks'
 
-import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { useAutoAnimate } from '@formkit/auto-animate/react'
 
-import { Plus, Trash } from "tabler-icons-react";
+import { Plus, Trash } from 'tabler-icons-react'
 
-import { supabase } from "../supabase/client";
+import { supabase } from '../supabase/client'
 
-import Item from "../types/Item";
+import Item from '../types/Item'
 
 const List = () => {
-  const [item, setItem] = useInputState("");
-  const [items, setItems] = useState<Item[] | null>([]);
+  const [item, setItem] = useInputState('')
+  const [items, setItems] = useState<Item[] | null>([])
 
-  const [parent] = useAutoAnimate();
+  const [parent] = useAutoAnimate()
 
   useEffect(() => {
-    getItems().catch(console.error);
-  }, []);
+    getItems().catch(console.error)
+  }, [])
 
   const getItems = async () => {
     let { data: items, error } = await supabase
-      .from("items")
-      .select("*")
-      .order("id", { ascending: false });
-    if (error) console.log("error", error);
-    else setItems(items);
-  };
+      .from('items')
+      .select('*')
+      .order('id', { ascending: false })
+    if (error) console.log('error', error)
+    else setItems(items)
+  }
 
   const addItem = async () => {
-    const user = supabase.auth.user();
+    const user = supabase.auth.user()
     if (user) {
-      await supabase.from("items").insert({ item, user_id: user.id }).single();
+      await supabase.from('items').insert({ item, user_id: user.id }).single()
     }
-  };
+  }
 
   const updateItem = async (item: Item) => {
-    const user = supabase.auth.user();
+    const user = supabase.auth.user()
     if (user) {
       if (item.is_complete) {
-        await supabase
-          .from("items")
-          .update({ is_complete: false })
-          .match({ item: item.item });
-        getItems().catch(console.error);
+        await supabase.from('items').update({ is_complete: false }).match({ item: item.item })
+        getItems().catch(console.error)
       } else {
-        await supabase
-          .from("items")
-          .update({ is_complete: true })
-          .match({ item: item.item });
-        getItems().catch(console.error);
+        await supabase.from('items').update({ is_complete: true }).match({ item: item.item })
+        getItems().catch(console.error)
       }
     }
-  };
+  }
 
   const addItemKey = async (e: React.KeyboardEvent<HTMLInputElement>) => {
     // triggers by pressing the enter key
     if (e.keyCode === 13) {
-      addItem();
-      setItem("");
-      getItems();
+      addItem()
+      setItem('')
+      getItems()
     }
-  };
+  }
 
   const deleteItem = async (id: number) => {
     try {
-      await supabase.from("items").delete().eq("id", id);
-      if (items) setItems(items.filter((x) => x.id !== id));
+      await supabase.from('items').delete().eq('id', id)
+      if (items) setItems(items.filter((x) => x.id !== id))
     } catch (error) {
-      console.log("error", error);
+      console.log('error', error)
     }
-  };
+  }
 
   const isInvalid = () => {
-    if (item) return item.length < 4;
-    else undefined;
-  };
+    if (item) return item.length < 4
+    else undefined
+  }
 
   return (
     <>
       <Container>
-        <Group position="center">
+        <Group position='center'>
           <Input
             value={item}
             onChange={setItem}
-            variant="filled"
+            variant='filled'
             icon={<Plus size={16} />}
-            placeholder="Add item"
-            radius="md"
-            size="md"
+            placeholder='Add item'
+            radius='md'
+            size='md'
             invalid={isInvalid()}
             onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
-              addItemKey(e);
+              addItemKey(e)
             }}
           ></Input>
           <Button
             onClick={() => {
-              addItem().then(getItems), setItem("");
+              addItem().then(getItems), setItem('')
             }}
-            color="violet"
+            color='violet'
           >
             Add
           </Button>
         </Group>
       </Container>
 
-      <Space h="xl"></Space>
-      <Space h="xl"></Space>
+      <Space h='xl'></Space>
+      <Space h='xl'></Space>
 
       <Group>
         <Container>
@@ -126,7 +120,7 @@ const List = () => {
             <Title>Needed Items &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Title>
           )}
 
-          <Space h="lg"></Space>
+          <Space h='lg'></Space>
 
           <Stack ref={parent as Ref<HTMLDivElement>}>
             {items &&
@@ -134,66 +128,56 @@ const List = () => {
                 .filter((item) => !item.is_complete)
                 .map((item, index) => (
                   <Group
-                    className="p-2 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-800 bg-opacity-10"
-                    position="apart"
+                    className='p-2 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-800 bg-opacity-10'
+                    position='apart'
                     key={item.id}
                   >
                     <Group>
                       <Checkbox
-                        color="violet"
-                        styles={{ input: { cursor: "pointer" } }}
-                        size="md"
+                        color='violet'
+                        styles={{ input: { cursor: 'pointer' } }}
+                        size='md'
                         checked={item.is_complete}
                         onChange={() => {
-                          updateItem(item);
+                          updateItem(item)
                         }}
                       ></Checkbox>
-                      <Text size="xl">{item.item}</Text>
+                      <Text size='xl'>{item.item}</Text>
                     </Group>
-                    <ActionIcon
-                      color="red"
-                      variant="hover"
-                      onClick={() => deleteItem(item.id)}
-                    >
+                    <ActionIcon color='red' variant='hover' onClick={() => deleteItem(item.id)}>
                       <Trash size={16} />
                     </ActionIcon>
                   </Group>
                 ))}
           </Stack>
-          <Space h="xl"></Space>
-          <Space h="xl"></Space>
+          <Space h='xl'></Space>
+          <Space h='xl'></Space>
 
-          {items && items.find((item) => item.is_complete) && (
-            <Title>Completed Items</Title>
-          )}
-          <Space h="lg"></Space>
+          {items && items.find((item) => item.is_complete) && <Title>Completed Items</Title>}
+          <Space h='lg'></Space>
           <Stack>
             {items &&
               items
                 .filter((item) => item.is_complete)
                 .map((item) => (
                   <Group
-                    className="p-2 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-800 bg-opacity-10"
-                    position="apart"
+                    className='p-2 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-800 bg-opacity-10'
+                    position='apart'
                     key={item.id}
                   >
                     <Group>
                       <Checkbox
-                        color="violet"
-                        styles={{ input: { cursor: "pointer" } }}
-                        size="md"
+                        color='violet'
+                        styles={{ input: { cursor: 'pointer' } }}
+                        size='md'
                         checked={item.is_complete}
                         onChange={() => {
-                          updateItem(item);
+                          updateItem(item)
                         }}
                       ></Checkbox>
-                      <Text size="xl">{item.item}</Text>
+                      <Text size='xl'>{item.item}</Text>
                     </Group>
-                    <ActionIcon
-                      color="red"
-                      variant="hover"
-                      onClick={() => deleteItem(item.id)}
-                    >
+                    <ActionIcon color='red' variant='hover' onClick={() => deleteItem(item.id)}>
                       <Trash size={16} />
                     </ActionIcon>
                   </Group>
@@ -202,7 +186,7 @@ const List = () => {
         </Container>
       </Group>
     </>
-  );
-};
+  )
+}
 
-export { List };
+export { List }
