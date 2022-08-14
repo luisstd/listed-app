@@ -5,6 +5,7 @@ specifiers:
   '@fontsource/atkinson-hyperlegible': ^4.5.7
   '@fontsource/recursive': ^4.5.7
   '@fontsource/space-mono': ^4.5.8
+  '@formkit/auto-animate': 1.0.0-beta.1
   '@mantine/core': ^4.1.4
   '@mantine/form': ^4.1.4
   '@mantine/hooks': ^4.1.4
@@ -30,6 +31,7 @@ dependencies:
   '@fontsource/atkinson-hyperlegible': 4.5.7
   '@fontsource/recursive': 4.5.7
   '@fontsource/space-mono': 4.5.8
+  '@formkit/auto-animate': 1.0.0-beta.1_react@17.0.2
   '@mantine/core': 4.1.4_w7e2q3wfxcg6wr7ygop7mmkbwm
   '@mantine/form': 4.1.4_react@17.0.2
   '@mantine/hooks': 4.1.4_react@17.0.2
@@ -398,6 +400,20 @@ packages:
 
   /@fontsource/space-mono/4.5.8:
     resolution: {integrity: sha512-qO3riZauz1yu7g8gumsmKgGitgDx7dQbwjKG+rDhF/OfNNCPyjArcNIU22nvANZ7UuDvLzo3tRprqlosaS7fKA==}
+    dev: false
+
+  /@formkit/auto-animate/1.0.0-beta.1_react@17.0.2:
+    resolution: {integrity: sha512-I3OWOBaPZKSJL4bsooXI8kC3q7bcgibD2oML0P/Lir6MnbvUe/0/7EH8br024juvM/Ulm9C9xGx9CJUQYrOWSA==}
+    peerDependencies:
+      react: ^16.8.0
+      vue: ^3.0.0
+    peerDependenciesMeta:
+      react:
+        optional: true
+      vue:
+        optional: true
+    dependencies:
+      react: 17.0.2
     dev: false
 
   /@jridgewell/resolve-uri/3.0.5:
