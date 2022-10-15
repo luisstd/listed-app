@@ -10,6 +10,7 @@ import {
   Container,
   Stack,
   Title,
+  useMantineTheme,
 } from '@mantine/core'
 import { useInputState } from '@mantine/hooks'
 
@@ -30,6 +31,8 @@ const List = () => {
   useEffect(() => {
     getItems().catch(console.error)
   }, [])
+
+  const theme = useMantineTheme()
 
   const getItems = async () => {
     let { data: items, error } = await supabase
@@ -111,16 +114,14 @@ const List = () => {
         </Group>
       </Container>
 
-      <Space h='xl'></Space>
-      <Space h='xl'></Space>
+      <Space h='xl' />
+      <Space h='xl' />
 
       <Group>
         <Container>
-          {items && items.find((item) => !item.is_complete) && (
-            <Title>Needed Items &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Title>
-          )}
+          {items && items.find((item) => !item.is_complete) && <Title>Open</Title>}
 
-          <Space h='lg'></Space>
+          <Space h='lg' />
 
           <Stack ref={parent as Ref<HTMLDivElement>}>
             {items &&
@@ -150,18 +151,20 @@ const List = () => {
                   </Group>
                 ))}
           </Stack>
-          <Space h='xl'></Space>
-          <Space h='xl'></Space>
+          <Space h='xl' />
+          <Space h='xl' />
 
-          {items && items.find((item) => item.is_complete) && <Title>Completed Items</Title>}
-          <Space h='lg'></Space>
+          {items && items.find((item) => item.is_complete) && <Title>Complete</Title>}
+          <Space h='lg' />
           <Stack>
             {items &&
               items
                 .filter((item) => item.is_complete)
                 .map((item) => (
                   <Group
-                    className='p-2 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-800 bg-opacity-10'
+                    className={
+                      'p-2 rounded-md hover:bg-neutral-100 dark:hover:bg-neutral-800 bg-opacity-10'
+                    }
                     position='apart'
                     key={item.id}
                   >

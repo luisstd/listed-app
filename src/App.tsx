@@ -27,8 +27,15 @@ function App() {
     getInitialValueInEffect: true,
   })
 
-  const toggleColorScheme = (value?: ColorScheme) =>
+  const toggleColorScheme = (value?: ColorScheme) => {
     setColorScheme(value || colorScheme === 'dark' ? 'light' : 'dark')
+
+    if (colorScheme === 'light') {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+  }
 
   return (
     <MantineProvider
