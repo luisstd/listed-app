@@ -4,8 +4,8 @@ import { Logout, MoonStars, Sun } from 'tabler-icons-react'
 function HeaderBar({ colorScheme, toggleColorScheme, signOut, user }: any) {
   return (
     <Header height={60} p='sm'>
-      <Group className='justify-around' px='md'>
-        <Text className='font-bold font-heading italic text-xl'>listed.fyi</Text>
+      <Group className='justify-around md:justify-center md:gap-40' px='md'>
+        <Text className='text-xl italic font-bold font-heading'>listed.fyi</Text>
         <Space w='xl'></Space>
         <Space w='xl'></Space>
         <Group>
