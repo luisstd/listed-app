@@ -13,6 +13,7 @@ import '@fontsource/space-mono'
 
 function App() {
   const user = supabase.auth.user()
+  const session = supabase.auth.session()
 
   async function signOut() {
     await supabase.auth.signOut()
@@ -59,7 +60,7 @@ function App() {
           user={user}
         />
         <Space h='lg'></Space>
-        {!user ? <Login /> : <List />}
+        {!session ? <Login /> : <List />}
       </NotificationsProvider>
     </MantineProvider>
   )
