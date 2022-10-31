@@ -10,7 +10,6 @@ import {
   Container,
   Stack,
   Title,
-  useMantineTheme,
 } from '@mantine/core'
 import { useInputState } from '@mantine/hooks'
 
@@ -23,6 +22,8 @@ import { supabase } from '../supabase/client'
 import Item from '../types/Item'
 
 const List = () => {
+  const user = supabase.auth.user()
+
   const [item, setItem] = useInputState('')
   const [items, setItems] = useState<Item[] | null>([])
 
@@ -30,9 +31,7 @@ const List = () => {
 
   useEffect(() => {
     getItems().catch(console.error)
-  }, [])
-
-  const theme = useMantineTheme()
+  }, [item])
 
   const getItems = async () => {
     let { data: items, error } = await supabase
@@ -44,7 +43,6 @@ const List = () => {
   }
 
   const addItem = async () => {
-    const user = supabase.auth.user()
     if (user) {
       await supabase.from('items').insert({ item, user_id: user.id }).single()
     }
@@ -98,6 +96,7 @@ const List = () => {
             placeholder='Add item'
             radius='md'
             size='md'
+            className='md:w-1/3'
             invalid={isInvalid()}
             onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
               addItemKey(e)
@@ -118,7 +117,7 @@ const List = () => {
       <Space h='xl' />
 
       <Group>
-        <Container>
+        <Container className='w-5/6 md:w-1/3'>
           {items && items.find((item) => !item.is_complete) && <Title>Open</Title>}
 
           <Space h='lg' />
