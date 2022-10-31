@@ -23,7 +23,7 @@
 
 ### Preview
 
-![listed.fyi login page](https://github.com/luisstd/listed-app/raw/main/public/login.png)
+<img src="https://github.com/luisstd/listed-app/raw/main/public/login.png" alt="listed.fyi login page" title="listed.fyi login page" style="border-radius: 6px"/>
 
 ### Features
 
@@ -50,7 +50,8 @@
 Sign up to Supabase - <https://app.supabase.io> and create a new project. Wait for your database to start.
 
 In your Supabase project, make sure to create the `items` table with the following fields:
-![DB Setup](https://github.com/luisstd/listed-app/raw/main/public/db.png)
+
+<img src="https://github.com/luisstd/listed-app/raw/main/public/db.png" alt="Supabase DB Setup" title="Supabase DB Setup" style="border-radius: 6px"/>
 
 ### Deploy with Vercel
 
@@ -60,35 +61,28 @@ In your Supabase project, make sure to create the `items` table with the followi
 
 1. Clone the repo
 
-   ```
+   ```bash
    git clone https://github.com/luisstd/listed-app.git
    ```
 
 2. Install dependencies
 
-   ```
+   ```bash
    pnpm install
    ```
 
 3. Start the dev server
 
-   ```
+   ```bash
    pnpm dev
    ```
 
 4. Go to the API section in your supabase project settings and get the project API key and url. Then fill the .env file like this:
 
-   ```
+   ```bash
    VITE_SUPABASE_URL=https://example.supabase.com
    VITE_SUPABASE_ANON_KEY=<your_key>
    ```
-
-<!-- USAGE EXAMPLES -->
-
-## Usage
-
-After login there is the list view where you can create items, check them off and also remove them from the database.
-![listed.fyi list view](https://github.com/luisstd/listed-app/raw/main/public/list.png)
 
 <!-- LICENSE -->
 
