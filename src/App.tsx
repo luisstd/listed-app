@@ -22,43 +22,20 @@ function App() {
 
   const systemColorScheme = useColorScheme()
 
-  const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
-    key: 'mantine-color-scheme',
-    defaultValue: systemColorScheme,
-    getInitialValueInEffect: true,
-  })
-
-  const toggleColorScheme = (value?: ColorScheme) => {
-    setColorScheme(value || colorScheme === 'dark' ? 'light' : 'dark')
-
-    if (colorScheme === 'light') {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }
+  const mantineTheme = {
+    fontFamily: 'Atkinson Hyperlegible, sans-serif',
+    fontFamilyMonospace: 'Space Mono, monospace',
+    colorScheme: systemColorScheme,
+    primaryColor: 'violet',
+    headings: {
+      fontFamily: 'Recursive, sans-serif',
+    },
   }
 
   return (
-    <MantineProvider
-      withGlobalStyles
-      withNormalizeCSS
-      theme={{
-        fontFamily: 'Atkinson Hyperlegible, sans-serif',
-        fontFamilyMonospace: 'Space Mono, monospace',
-        colorScheme: colorScheme,
-        primaryColor: 'violet',
-        headings: {
-          fontFamily: 'Recursive, sans-serif',
-        },
-      }}
-    >
+    <MantineProvider withGlobalStyles withNormalizeCSS theme={mantineTheme}>
       <NotificationsProvider>
-        <HeaderBar
-          colorScheme={colorScheme}
-          toggleColorScheme={toggleColorScheme}
-          signOut={signOut}
-          user={user}
-        />
+        <HeaderBar signOut={signOut} user={user} />
         <Space h='lg'></Space>
         {!session ? <Login /> : <List />}
       </NotificationsProvider>
