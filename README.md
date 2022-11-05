@@ -27,9 +27,9 @@
 
 ### Features
 
-- Light/Dark Mode
-- Add to Homescreen
-- Quick Login via e-mail link
+- Automatic light/dark mode
+- Add to homescreen
+- Quick login via e-mail link
 - Ready for self-hosting
 
 ### Built With
